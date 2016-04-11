@@ -7,12 +7,14 @@ import model.Player;
  */
 public class Game {
 
-    private static final String GAME_NAME = "XO";
+    private final String gameName;
 
     private Player[] players;
 
+    public Game(String gameName) { this.gameName = gameName; }
+
     public String getGameName() {
-        return GAME_NAME;
+        return gameName;
     }
 
     public Player currentPlayer() {
@@ -23,8 +25,24 @@ public class Game {
         return players;
     }
 
+    private static final int MIN_COORDINATE = 0;
+
+    private static final int MAX_COORDINATE = 2;
+
     public boolean move(final int x, final int y) {
-        return false;
+        if(!checkCoordinate(x) || !checkCoordinate(y)) {
+            return false;
+        }
+
+        // TODO logic for move
+
+        return true;
+    }
+
+    private static boolean checkCoordinate(final int coordinate) {
+        if(coordinate < MIN_COORDINATE || coordinate > MAX_COORDINATE) return false;
+
+        return true;
     }
 
 }
