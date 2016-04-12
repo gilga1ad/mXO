@@ -1,5 +1,6 @@
 package controller;
 
+import model.Board;
 import model.Figure;
 import model.Player;
 
@@ -10,13 +11,26 @@ public class Game {
 
     private final String gameName;
 
-    private Player[] players = new Player[] {new Player("Max", new Figure("O")),
-                                            new Player("Leo", new Figure("X"))};
+    private final Board board;
 
-    public Game(String gameName) { this.gameName = gameName; }
+    private final Player[] players;
+
+    public Game(final String gameName, final Player[] players, final Board board) {
+        this.players = players;
+        this.board = board;
+        if(gameName == null || gameName.isEmpty()) {
+            this.gameName = "XO";
+        } else {
+            this.gameName = gameName;
+        }
+    }
 
     public String getGameName() {
         return gameName;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public Player[] getPlayers() {

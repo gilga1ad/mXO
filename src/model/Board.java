@@ -25,4 +25,8 @@ public class Board {
         // Для многомерных массивов
         System.out.println(Arrays.deepToString(this.figures));
     }
+
+    public Figure getFigure(final Point point) {
+        return figures[point.x][point.y];
+    }
 }
