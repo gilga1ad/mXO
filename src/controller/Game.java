@@ -1,5 +1,6 @@
 package controller;
 
+import model.Figure;
 import model.Player;
 
 /**
@@ -9,7 +10,8 @@ public class Game {
 
     private final String gameName;
 
-    private Player[] players;
+    private Player[] players = new Player[] {new Player("Max", new Figure("O")),
+                                            new Player("Leo", new Figure("X"))};
 
     public Game(String gameName) { this.gameName = gameName; }
 
@@ -17,16 +19,15 @@ public class Game {
         return gameName;
     }
 
-    public Player currentPlayer() {
-        return null;
-    }
-
     public Player[] getPlayers() {
         return players;
     }
 
-    private static final int MIN_COORDINATE = 0;
+    public Player currentPlayer() {
+        return null;
+    }
 
+    private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 2;
 
     public boolean move(final int x, final int y) {
