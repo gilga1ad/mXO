@@ -24,7 +24,7 @@ public class CurrentMoveController {
                     y++;
                 }
             }
-        return x == y ? "X" : "O";
+        return x >= y ? "X" : "O";
     }
 
 }

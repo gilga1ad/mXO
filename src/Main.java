@@ -4,6 +4,7 @@ import model.Figure;
 import model.Player;
 import view.AdvConsoleView;
 import view.ConsoleView;
+import view.MenuView;
 
 /**
  * Created by kollaps on 11.04.16.
@@ -21,11 +22,14 @@ public class Main {
 //        board.initArray();
 //        board.showBoard();
 
-        final Board board = new Board();
-        final Game game = new Game("XO", new Player[]{new Player("Denis", new Figure("X")), new Player("Slava", new Figure("O"))}, board);
-        //new ConsoleView(game).showBoard();
-        //new ConsoleView(game).start();
-        new ConsoleView(game).showPlayers();
+//        final Board board = new Board();
+//        final Game game = new Game("XO", new Player[]{new Player("Denis", new Figure("X")), new Player("Slava", new Figure("O"))}, board);
+//        //new ConsoleView(game).showBoard();
+//        //new ConsoleView(game).start();
+//        new ConsoleView(game).showPlayers();
+
+        final MenuView menuView = new MenuView();
+        menuView.showMenuWithResult();
     }
 
 //    private static void startGame(final ConsoleView consoleView) {
