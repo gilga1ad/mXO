@@ -14,10 +14,6 @@ import static jdk.nashorn.internal.parser.TokenType.IN;
  */
 public class ConsoleView {
 
-    private static final int LINE_SIZE = 12;
-
-    private static final String LINE_CHARACTER = "~";
-
     protected final Game game;
 
     public ConsoleView(final Game game) {
@@ -38,6 +34,8 @@ public class ConsoleView {
         System.out.println(game.getPlayers());
     }
 
+    private static final int LINE_SIZE = 12;
+
     public void showBoard() {
         for(int i = 0; i < 3; i = i + 1) {
             showBoardLine(i);
@@ -52,16 +50,18 @@ public class ConsoleView {
             }
     }
 
-    private void showBoardLine(final int row) {
-        for(int i = 0; i < 3; i = i + 1) {
-            System.out.print(game.getBoard().getFigure(new Point(row, i)));
+    private static final String LINE_CHARACTER = "~";
+
+    protected void showLine(final int size) {
+        for(int i = 0; i < size; i = i + 1) {
+            System.out.print(LINE_CHARACTER);
         }
         System.out.println();
     }
 
-    private void showLine(final int size) {
-        for(int i = 0; i < size; i = i + 1) {
-            System.out.print(LINE_CHARACTER);
+    private void showBoardLine(final int row) {
+        for(int i = 0; i < 3; i = i + 1) {
+            System.out.print(game.getBoard().getFigure(new Point(row, i)));
         }
         System.out.println();
     }

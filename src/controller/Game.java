@@ -1,5 +1,6 @@
 package controller;
 
+import helpers.CoordinateHelper;
 import model.Board;
 import model.Figure;
 import model.Player;
@@ -8,6 +9,8 @@ import model.Player;
  * Created by kollaps on 11.04.16.
  */
 public class Game {
+
+    private final static String DEFAULT_GAME_NAME = "XO";
 
     private final String gameName;
 
@@ -19,7 +22,7 @@ public class Game {
         this.players = players;
         this.board = board;
         if(gameName == null || gameName.isEmpty()) {
-            this.gameName = "XO";
+            this.gameName = DEFAULT_GAME_NAME;
         } else {
             this.gameName = gameName;
         }
@@ -41,21 +44,12 @@ public class Game {
         return null;
     }
 
-    private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 2;
-
     public boolean move(final int x, final int y) {
-        if(!checkCoordinate(x) || !checkCoordinate(y)) {
+        if(!CoordinateHelper.checkCoordinate(x) || !CoordinateHelper.checkCoordinate(y)) {
             return false;
         }
 
         // TODO logic for move
-
-        return true;
-    }
-
-    private static boolean checkCoordinate(final int coordinate) {
-        if(coordinate < MIN_COORDINATE || coordinate > MAX_COORDINATE) return false;
 
         return true;
     }
