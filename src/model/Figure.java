@@ -8,6 +8,13 @@ public class Figure /*extends Object*/ {
 
     private final String figure;
 
+/*    public Figure() {
+        //this.figure = "X";    // нарушает принцип повторного использования кода
+        // (такой код уже есть в конструкторе Figure(final String figure))
+        // Вариант получше:
+        this("X");  // вызывает конструктор Figure(final String figure)
+    }*/
+
     public Figure(final String figure) {
         assert figure != null;
         this.figure = figure;

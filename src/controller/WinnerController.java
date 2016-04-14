@@ -9,54 +9,74 @@ import model.Point;
 public class WinnerController {
 
     public String getWinner(final Field field) {
-        Point p1;
-        Point p2;
-        Point p3;
-
+        String winner;
         for (int i = 0; i < field.getSize(); i++) {
-            p1 = new Point(0, i);
-            p2 = new Point(1, i);
-            p3 = new Point(2, i);
-
-            if (field.getFigure(p1) == field.getFigure(p2) &&
-                    field.getFigure(p1) == field.getFigure(p3)
-                    && field.getFigure(p1) != null) {
-                return field.getFigure(p1);
-            }
+            winner = checkRow(field, i);
+            if (winner != null) return winner;
+            winner = checkColumn(field, i);
+            if (winner != null) return winner;
         }
+        winner = checkDiag1(field);
+        if (winner != null) return winner;
+        winner = checkDiag2(field);
+        if (winner != null) return winner;
 
-        for (int i = 0; i < field.getSize(); i++) {
-            p1 = new Point(i, 0);
-            p2 = new Point(i, 1);
-            p3 = new Point(i, 2);
+        return null;
+    }
 
-            if (field.getFigure(p1) == field.getFigure(p2) &&
-                    field.getFigure(p1) == field.getFigure(p3)
-                    && field.getFigure(p1) != null) {
-                return field.getFigure(p1);
-            }
-        }
+    private String checkDiag1(final Field field) {
+        final Point p1 = new Point(0, 0);
+        final Point p2 = new Point(1, 1);
+        final Point p3 = new Point(2, 2);
 
-        p1 = new Point(0, 0);
-        p2 = new Point(1, 1);
-        p3 = new Point(2, 2);
-
-        if (field.getFigure(p1) == field.getFigure(p2) &&
-                field.getFigure(p1) == field.getFigure(p3)
-                && field.getFigure(p1) != null) {
+        if (field.getFigure(p1) != null && field.getFigure(p2) != null &&
+                field.getFigure(p3) != null &&
+                field.getFigure(p1).equals(field.getFigure(p2)) &&
+                field.getFigure(p1).equals(field.getFigure(p3))) {
             return field.getFigure(p1);
         }
+        return null;
+    }
 
-        p1 = new Point(2, 0);
-        p2 = new Point(1, 1);
-        p3 = new Point(0, 2);
+    private String checkDiag2(final Field field) {
+        final Point p1 = new Point(2, 0);
+        final Point p2 = new Point(1, 1);
+        final Point p3 = new Point(0, 2);
 
-        if (field.getFigure(p1) == field.getFigure(p2) &&
-                field.getFigure(p1) == field.getFigure(p3)
-                && field.getFigure(p1) != null) {
+        if (field.getFigure(p1) != null && field.getFigure(p2) != null
+                && field.getFigure(p3) != null &&
+                field.getFigure(p1).equals(field.getFigure(p2)) &&
+                field.getFigure(p1).equals(field.getFigure(p3))) {
             return field.getFigure(p1);
         }
+        return null;
+    }
 
+    private String checkColumn(final Field field, final Integer i) {
+        final Point p1 = new Point(i, 0);
+        final Point p2 = new Point(i, 1);
+        final Point p3 = new Point(i, 2);
+
+        if (field.getFigure(p1) != null && field.getFigure(p2) != null
+                && field.getFigure(p3) != null &&
+                field.getFigure(p1).equals(field.getFigure(p2)) &&
+                field.getFigure(p1).equals(field.getFigure(p3))) {
+            return field.getFigure(p1);
+        }
+        return null;
+    }
+
+    private String checkRow(final Field field, final Integer i) {
+        final Point p1 = new Point(0, i);
+        final Point p2 = new Point(1, i);
+        final Point p3 = new Point(2, i);
+
+        if (field.getFigure(p1) != null && field.getFigure(p2) != null
+                && field.getFigure(p3) != null &&
+                field.getFigure(p1).equals(field.getFigure(p2)) &&
+                field.getFigure(p1).equals(field.getFigure(p3))) {
+            return field.getFigure(p1);
+        }
         return null;
     }
 }
