@@ -7,18 +7,18 @@ public class Field {
 
     private static int SIZE_FIELD = 3;
 
-    public String[][] figures = new String[SIZE_FIELD][SIZE_FIELD];
+    private final String[][] figures = new String[SIZE_FIELD][SIZE_FIELD];
 
     public int getSize() {
         return figures.length;
     }
 
     public String getFigure(final Point point) {
-        return figures[point.x][point.y];
+        return figures[point.getX()][point.getY()];
     }
 
     public void setFigure(final Point point, final String figure) {
-        figures[point.x][point.y] = figure;
+        figures[point.getX()][point.getY()] = figure;
     }
 
 }

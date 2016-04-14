@@ -53,9 +53,9 @@ public class WinnerController {
     }
 
     private String checkColumn(final Field field, final Integer i) {
-        final Point p1 = new Point(i, 0);
-        final Point p2 = new Point(i, 1);
-        final Point p3 = new Point(i, 2);
+        final Point p1 = new Point(0, i);
+        final Point p2 = new Point(1, i);
+        final Point p3 = new Point(2, i);
 
         if (field.getFigure(p1) != null && field.getFigure(p2) != null
                 && field.getFigure(p3) != null &&
@@ -67,9 +67,9 @@ public class WinnerController {
     }
 
     private String checkRow(final Field field, final Integer i) {
-        final Point p1 = new Point(0, i);
-        final Point p2 = new Point(1, i);
-        final Point p3 = new Point(2, i);
+        final Point p1 = new Point(i, 0);
+        final Point p2 = new Point(i, 1);
+        final Point p3 = new Point(i, 2);
 
         if (field.getFigure(p1) != null && field.getFigure(p2) != null
                 && field.getFigure(p3) != null &&

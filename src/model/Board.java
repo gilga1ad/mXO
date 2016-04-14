@@ -12,7 +12,7 @@ public class Board {
     private static final int SIZE_FIELD = 3;
 
     // Двумерный массив
-    private Figure[][] figures = new Figure[SIZE_FIELD][SIZE_FIELD];
+    private final Figure[][] figures = new Figure[SIZE_FIELD][SIZE_FIELD];
     // Другой вариант, но тогда придется инициализировать каждый объект массива: figures[0] = new Figure[SIZE_FIELD];
     //private Figure[][] figures = new Figure[SIZE_FIELD][];
 
@@ -25,19 +25,19 @@ public class Board {
 
     // Board имеет доступ к x, y, т. к. они объявлены как default
     public Figure getFigure(final Point point) {
-        if(!CoordinateHelper.checkCoordinate(point.x) || !CoordinateHelper.checkCoordinate(point.y)) {
+        if (!CoordinateHelper.checkCoordinate(point.getX()) || !CoordinateHelper.checkCoordinate(point.getY())) {
             return null;
         }
-        return figures[point.x][point.y];
+        return figures[point.getX()][point.getY()];
     }
 
-    public boolean setFigure(final Point point , Figure figure) {
-        if(!CoordinateHelper.checkCoordinate(point.x) || !CoordinateHelper.checkCoordinate(point.y)) {
+    public boolean setFigure(final Point point , final Figure figure) {
+        if (!CoordinateHelper.checkCoordinate(point.getX()) || !CoordinateHelper.checkCoordinate(point.getY())) {
             return false;
         }
-        if(figures[point.x][point.y] != null) return false;
+        if(figures[point.getX()][point.getY()] != null) return false;
 
-        figures[point.x][point.y] = figure;
+        figures[point.getX()][point.getY()] = figure;
         return true;
     }
 

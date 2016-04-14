@@ -9,22 +9,29 @@ import model.Point;
 public class CurrentMoveController {
 
     public String currentMove(final Field field) {
-        int x = 0;
-        int y = 0;
-        for (int i = 0; i < field.getSize(); i++)
-            for (int j = 0; j < field.getSize(); j++) {
-                final Point p = new Point(i, j);
-                final String figure = field.getFigure(p);
-                
-                if (figure == null) continue;
+        int countFigure = 0;
+        for (int x = 0; x < field.getSize(); x++) {
+            countFigure += countFiguresInTheRow(field, x);
+        }
 
-                if (figure == "X") {
-                    x++;
-                } else {
-                    y++;
-                }
-            }
-        return x >= y ? "X" : "O";
+        if (countFigure == field.getSize() * field.getSize())
+            return null;
+
+        if (countFigure % 2 == 0)
+            return "X";
+
+        return "O";
+    }
+
+    private int countFiguresInTheRow(final Field field, final Integer row) {
+        int countFigure = 0;
+        for (int x = 0; x < field.getSize(); x++) {
+            Point p = new Point(x, row);
+
+            if (field.getFigure(p) != null)
+                countFigure++;
+        }
+        return countFigure;
     }
 
 }
