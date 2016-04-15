@@ -7,8 +7,6 @@ import model.Point;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static jdk.nashorn.internal.parser.TokenType.IN;
-
 /**
  * Created by kollaps on 11.04.16.
  */
@@ -27,7 +25,7 @@ public class ConsoleView {
     }
 
     public void showGameName() {
-        System.out.println(game.getGameName());
+        System.out.println(game.getName());
     }
 
     public void showPlayersName() {

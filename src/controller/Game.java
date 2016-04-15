@@ -2,7 +2,6 @@ package controller;
 
 import helpers.CoordinateHelper;
 import model.Board;
-import model.Figure;
 import model.Player;
 
 /**
@@ -12,24 +11,20 @@ public class Game {
 
     private final static String DEFAULT_GAME_NAME = "XO";
 
-    private final String gameName;
+    private final String name;
 
     private final Board board;
 
     private final Player[] players;
 
-    public Game(final String gameName, final Player[] players, final Board board) {
-        this.players = players;
-        this.board = board;
-        if(gameName == null || gameName.isEmpty()) {
-            this.gameName = DEFAULT_GAME_NAME;
-        } else {
-            this.gameName = gameName;
-        }
+    Game(final GameBuilder builder) {
+        this.players = builder.getPlayers();
+        this.board = builder.getBoard();
+        this.name = builder.getName();
     }
 
-    public String getGameName() {
-        return gameName;
+    public String getName() {
+        return name;
     }
 
     public Board getBoard() {

@@ -15,6 +15,6 @@ public class AdvConsoleView extends ConsoleView {
     @Override   // Аннотация
     public void showGameName() {
         showLine(3);
-        System.out.println(game.getGameName());
+        System.out.println(game.getName());
     }
 }

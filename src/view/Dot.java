@@ -1,7 +1,7 @@
 package view;
 
 /**
- * Created by kollaps on 14.04.16.
+ * Created by kollaps on 14.04.16. Разбор урока 3 модуля 5 "Неизменяемые объекты"
  */
 public class Dot {
 
