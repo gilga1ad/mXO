@@ -4,7 +4,11 @@ package model;
  * Created by kollaps on 12.04.16.
  */
 // В Java все классы наследуются от класса Object, который имеет свой toString
-public class Figure /*extends Object*/ {
+//public class Figure /*extends Object*/ {
+
+public enum Figure {
+
+    X("X"), O("O");       // список констант (instance-ов класса)
 
     private final String figure;
 
@@ -15,7 +19,7 @@ public class Figure /*extends Object*/ {
         this("X");  // вызывает конструктор Figure(final String figure)
     }*/
 
-    public Figure(final String figure) {
+    Figure(final String figure) {       // В перечислении, конструктор не может быть public
         assert figure != null;
         this.figure = figure;
     }
@@ -24,8 +28,9 @@ public class Figure /*extends Object*/ {
         return figure;
     }
 
-    @Override
-    public String toString() {
-        return figure;
-    }
+//    @Override     /*Не нужно определять свой toString(), по умолчанию для перечисления
+//                  * Java сама напишет свой toString(), который превращает име экземпляря в String */
+//    public String toString() {
+//        return figure;
+//    }
 }
