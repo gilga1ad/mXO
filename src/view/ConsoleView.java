@@ -1,6 +1,8 @@
 package view;
 
 import controller.Game;
+import model.Board;
+import model.Figure;
 import model.Player;
 import model.Point;
 
@@ -16,6 +18,40 @@ public class ConsoleView {
 
     public ConsoleView(final Game game) {
         this.game = game;
+    }
+
+    public void show(final Game game) {
+        final Board field = game.getBoard();
+        final StringBuilder fieldBuilder = new StringBuilder();
+        for (int x = 0; x < field.getSize(); x++) {
+            if (x != 0)
+                generateSeparator(fieldBuilder);
+            generateLine(field, x, fieldBuilder);
+        }
+        System.out.println(fieldBuilder.toString());
+    }
+
+    void generateLine(final Board board,
+                      final int x,
+                      final StringBuilder sb) {
+        for (int y = 0; y < board.getSize(); y++) {
+            if (y != 0)
+                sb.append("|");
+            sb.append(" ");
+            final Figure figure;
+            figure = board.getFigure(new Point(y, x));
+            sb.append(figure != null ? figure : " ");
+            sb.append(" ");
+        }
+        sb.append("\n");
+    }
+
+    void generateSeparator(final StringBuilder sb) {
+        sb.append("~~~~~~~~~~~\n");
+    }
+
+    public boolean move(final Game game) {
+        return true;
     }
 
     public void start() {

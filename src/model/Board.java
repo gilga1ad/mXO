@@ -16,6 +16,10 @@ public class Board {
     // Другой вариант, но тогда придется инициализировать каждый объект массива: figures[0] = new Figure[SIZE_FIELD];
     //private Figure[][] figures = new Figure[SIZE_FIELD][];
 
+    public int getSize() {
+        return figures.length;
+    }
+
     public void showBoard() {
         // Arrays.toString пойдет по всем элементам массива и вызовет toString у каждого элемента
         //System.out.println(Arrays.toString(this.figures));
