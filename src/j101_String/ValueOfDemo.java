@@ -1,3 +1,5 @@
+package j101_String;
+
 import static java.lang.Float.parseFloat;
 
 /**

@@ -1,10 +1,7 @@
 package view;
 
 import controller.Game;
-import model.Board;
-import model.Figure;
-import model.Player;
-import model.Point;
+import model.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by kollaps on 11.04.16.
  */
-public class ConsoleView {
+public class ConsoleView implements ICoordinateGetter {
 
     protected final Game game;
 
@@ -50,8 +47,8 @@ public class ConsoleView {
         sb.append("~~~~~~~~~~~\n");
     }
 
-    public boolean move(final Game game) {
-        return true;
+    public Point getMoveCoordinate(final Field field) {
+        return new Point(0, 0);
     }
 
     public void start() {

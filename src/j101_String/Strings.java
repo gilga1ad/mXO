@@ -1,4 +1,4 @@
-/**
+package j101_String; /**
  * Created by kollaps on 16.04.16.
  */
 import java.util.*;
