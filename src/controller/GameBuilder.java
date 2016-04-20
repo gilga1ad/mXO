@@ -37,7 +37,7 @@ public class GameBuilder {
         return this;
     }
 
-     public Player[] getPlayers() {
+    public Player[] getPlayers() {
          return players;
      }
 
@@ -52,6 +52,5 @@ public class GameBuilder {
     public Game build() {
         return new Game(this);
     }
-
 
 }

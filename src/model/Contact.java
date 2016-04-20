@@ -15,8 +15,8 @@ public class Contact {
 
     private final String address;
 
-    /*Когда у класса есть Builder, конструктор этого класса не должен быть доступен
-    * никому кроме этого Builder-а*/
+    /**Когда у класса есть Builder, конструктор этого класса не должен быть доступен
+    * никому кроме этого Builder-а**/
     Contact(ContactBuilder contactBuilder) {
         this.name = contactBuilder.getName();
         this.surname = contactBuilder.getSurname();
