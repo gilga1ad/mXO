@@ -1,8 +1,12 @@
 package controller;
 
+import controller.exceptions.FieldNotEmplyException;
+import controller.exceptions.InvalidCoordinateException;
 import helpers.CoordinateHelper;
 import model.Board;
+import model.Figure;
 import model.Player;
+import model.Point;
 
 /**
  * Created by kollaps on 11.04.16.
@@ -39,14 +43,19 @@ public class Game {
         return null;
     }
 
-    public boolean move(final int x, final int y) {
+
+    public void move(final int x, final int y, final Board board, final Figure figure)
+        throws FieldNotEmplyException, InvalidCoordinateException {
+
         if(!CoordinateHelper.checkCoordinate(x) || !CoordinateHelper.checkCoordinate(y)) {
-            return false;
+            throw new InvalidCoordinateException();
         }
 
-        // TODO logic for move
+        if(board.getFigure(new Point(x, y)) != null) {
+            throw new FieldNotEmplyException();
+        }
 
-        return true;
+        board.setFigure(new Point(x, y), figure);
     }
 
     static public class Builder {
